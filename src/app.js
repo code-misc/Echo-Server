@@ -8,9 +8,9 @@ const http = require('http')
 app.disable('x-powered-by');
 
 // Parser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({limit: '5000mb', extended: true}));
 app.use(bodyParser.text());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5000mb'}));
 app.use(require('cookie-parser')());
 app.use(require('multer')().array());
 
